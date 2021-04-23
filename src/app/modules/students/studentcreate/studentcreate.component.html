@@ -1,0 +1,41 @@
+<mat-toolbar>
+    <span class="center">New Student</span>
+</mat-toolbar>
+
+<form [formGroup]="studentForm" class="normal-form" (submit)="addStudent()">
+    <mat-grid-list cols="2" rowHeight="175px">
+        <mat-grid-tile>
+            <div class="controles-container">
+
+                <mat-form-field>
+                    <input formControlName="firstname" matInput placeholder="Firstname">
+                    <mat-error>Invalid</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input formControlName="lastname" matInput placeholder="Lastname">
+                    <mat-error>Invalid</mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <input formControlName="email" matInput placeholder="Email">
+                    <mat-error>Invalid</mat-error>
+                </mat-form-field>
+
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <div class="controles-container">
+
+                
+
+                <div>
+                    <button mat-raised-button type="submit"
+                        [disabled]="studentForm.invalid">Submit</button>
+                </div>
+            </div>
+        </mat-grid-tile>
+
+    </mat-grid-list>
+</form>

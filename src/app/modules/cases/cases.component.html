@@ -1,0 +1,49 @@
+<button mat-button routerLinkActive="list-item-active" routerLink="/" class="back">Dashboard</button>
+
+<br>
+<br>
+<h1 color="primary">Cases</h1>
+
+<hr>
+
+<button mat-raised-button (click)="onCreate()" style="float:right;height: 50px; width:100%;">
+  <mat-icon>add</mat-icon>
+  Create
+</button>
+
+<hr>
+
+<div fxLayout="row" fxLayoutAlign="center" fxLayoutGap="10px">
+    <div fxFlex="60">
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource">
+          
+              <!-- Position Column -->
+              <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+              </ng-container>
+          
+              <!-- Name Column -->
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef> Case Name </th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="description">
+                <th mat-header-cell *matHeaderCellDef> Case Description </th>
+                <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+              </ng-container>
+          
+          
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+          
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+          </div>
+    </div>
+    <!-- <div fxFlex="40">
+        <app-widget-pie [data]="pieChart"></app-widget-pie>
+    </div> -->
+</div>
