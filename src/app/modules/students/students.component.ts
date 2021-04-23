@@ -69,9 +69,7 @@ export class StudentsComponent implements OnInit {
   deleteStudent(element: any) {
 
     this.dashboardService.deleteStudent(element.id).subscribe(Response => {
-      if (Response) {
-        this.fetchData();
-      }
+      this.fetchData();
     })
 
   }

@@ -13,7 +13,9 @@ const httpOptions = {
 export class DashboardService {
 
   // private studenturl = "http://inter.us-east-2.elasticbeanstalk.com/api/student";
-  private rootUrl = "http://inter.us-east-2.elasticbeanstalk.com/api/";
+  // private rootUrl = "http://inter.us-east-2.elasticbeanstalk.com/api/";
+  //http://service4env-env.eba-dy43wfun.us-east-1.elasticbeanstalk.com/api/case
+  private rootUrl = "http://service4env-env.eba-dy43wfun.us-east-1.elasticbeanstalk.com/api/";
   // private rootUrl = "http://localhost:5000/api/";
   constructor(private http: HttpClient) {
   }
@@ -30,20 +32,20 @@ export class DashboardService {
     return this.http.get(this.rootUrl + "case");
   }
 
-  createStudent(student : any){
+  createStudent(student: any) {
     return this.http.post(this.rootUrl + "student", student, httpOptions);
   }
 
-  createTeacher(teacher : any){
+  createTeacher(teacher: any) {
     return this.http.post(this.rootUrl + "teacher", teacher, httpOptions);
   }
 
-  createCase(casea : any){
+  createCase(casea: any) {
     return this.http.post(this.rootUrl + "case", casea, httpOptions);
   }
 
-  deleteStudent(id : any){
-    return this.http.delete(this.rootUrl + "student/"+id); 
+  deleteStudent(id: number) {
+    return this.http.delete(this.rootUrl + "student/" + id);
   }
-  
+
 }
