@@ -4,7 +4,7 @@ import { DefaultComponent } from './default.component';
 import { DashboardComponent } from 'src/app/modules/dashboard/dashboard.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { MatSidenavModule} from '@angular/material/sidenav';
+import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTableModule } from '@angular/material/table';
@@ -38,8 +38,8 @@ import { QrcodeComponent } from 'src/app/modules/qrcode/qrcode.component';
     InstructorsComponent,
     CasesComponent,
     CasescreateComponent,
-      InsturctorscreateComponent,
-      StudentcreateComponent
+    InsturctorscreateComponent,
+    StudentcreateComponent
   ],
   imports: [
     CommonModule,
@@ -47,14 +47,15 @@ import { QrcodeComponent } from 'src/app/modules/qrcode/qrcode.component';
     SharedModule,
     MaterialModule,
     ReactiveFormsModule
-    ],
-    providers: [
-      DashboardService
-    ],
-    entryComponents: [
-      CasescreateComponent,
-      InsturctorscreateComponent,
-      StudentcreateComponent
-    ]
+  ],
+  providers: [
+    DashboardService
+  ],
+  entryComponents: [
+    CasescreateComponent,
+    InsturctorscreateComponent,
+    StudentcreateComponent,
+    QrcodeComponent
+  ]
 })
 export class DefaultModule { }

@@ -5,6 +5,7 @@ import { DashboardService } from '../dashboard.service';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { StudentcreateComponent } from './studentcreate/studentcreate.component';
 import { MatSort } from '@angular/material/sort';
+import { QrcodeComponent } from '../qrcode/qrcode.component';
 
 export interface PeriodicElement {
   firstname: string;
@@ -20,7 +21,7 @@ export interface PeriodicElement {
 })
 export class StudentsComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'firstname', 'lastname', 'email'];
+  displayedColumns: string[] = ['id', 'firstname', 'lastname', 'email', 'QRcode'];
   
   dataSource = new MatTableDataSource<any>();
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -55,6 +56,15 @@ export class StudentsComponent implements OnInit {
             }
         });
   } 
+
+  onDetail(row: any) {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    // dialogConfig.width = "65%";
+    dialogConfig.data = row
+    this.dialog.open(QrcodeComponent, dialogConfig);
+  }
  
 
 }

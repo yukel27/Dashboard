@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-qrcode',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class QrcodeComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit(): void {
+  public imageSource : any
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private sanitizer:DomSanitizer) { }
+
+  ngOnInit() {
+    console.log(this.data)
+    this.imageSource=this.sanitizer.bypassSecurityTrustResourceUrl('data:image/png;base64, '+this.data.qrcode);
   }
 
 }
