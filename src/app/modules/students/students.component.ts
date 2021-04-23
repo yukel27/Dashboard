@@ -21,7 +21,7 @@ export interface PeriodicElement {
 })
 export class StudentsComponent implements OnInit {
 
-  displayedColumns: string[] = ['id', 'firstname', 'lastname', 'email', 'QRcode'];
+  displayedColumns: string[] = ['id', 'firstname', 'lastname', 'email', 'QRcode','delete'];
   
   dataSource = new MatTableDataSource<any>();
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
@@ -65,9 +65,17 @@ export class StudentsComponent implements OnInit {
     dialogConfig.data = row
     this.dialog.open(QrcodeComponent, dialogConfig);
   }
- 
 
-}
+  deleteStudent(id : any){
+    this.dashboardService.deleteStudent(id).subscribe(Response => {
+      if (Response){
+        this.fetchData();
+      }
+    })
+
+    }
+  }
+ 
 
 const ELEMENT_DATA: PeriodicElement[] = [
   {id: 1, firstname: 'Hydrogen', lastname:'Aaa', email: 'H'},
