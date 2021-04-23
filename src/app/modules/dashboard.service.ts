@@ -11,8 +11,8 @@ const httpOptions = {
 })
 
 export class DashboardService {
-  //http://localhost:5000/api/
-  //http://inter.us-east-2.elasticbeanstalk.com/api/student
+
+  // private studenturl = "http://inter.us-east-2.elasticbeanstalk.com/api/student";
   private rootUrl = "http://inter.us-east-2.elasticbeanstalk.com/api/";
   // private rootUrl = "http://localhost:5000/api/";
   constructor(private http: HttpClient) {
@@ -40,6 +40,10 @@ export class DashboardService {
 
   createCase(casea : any){
     return this.http.post(this.rootUrl + "case", casea, httpOptions);
+  }
+
+  deleteStudent(id : any){
+    return this.http.delete(this.rootUrl + "student/"+id); 
   }
   
 }
